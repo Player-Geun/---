@@ -1,0 +1,20 @@
+package geun.springcoreprinciple.discount;
+
+import geun.springcoreprinciple.member.Grade;
+import geun.springcoreprinciple.member.Member;
+
+public class FixDiscountPolicy implements DiscountPolicy {
+
+    private int discountFixAmount = 1000; //1000원 할인
+
+    @Override
+    public int discount(Member member, int price) {
+
+        if(member.getGrade() == Grade.VIP){
+            // enum 은 == 으로 비교하는 것
+            return discountFixAmount;
+        }else{
+            return 0;
+        }
+    }
+}
