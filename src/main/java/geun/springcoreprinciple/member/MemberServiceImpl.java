@@ -2,7 +2,12 @@ package geun.springcoreprinciple.member;
 
 public class MemberServiceImpl implements MemberService{
 
-    private final MemberRepositroy memberRepositroy = new MemoryMemberRepository();
+    private final MemberRepositroy memberRepositroy;
+
+    public MemberServiceImpl(MemberRepositroy memberRepository) {
+
+        this.memberRepositroy = memberRepository;
+    }
 
     @Override
     public void join(Member member) {

@@ -8,8 +8,14 @@ import geun.springcoreprinciple.member.MemoryMemberRepository;
 
 public class OrderServiceImpl implements OrderService {
 
-    private final MemberRepositroy memberRepositroy = new MemoryMemberRepository();
-    private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
+    private final MemberRepositroy memberRepositroy;
+    private final DiscountPolicy discountPolicy;
+
+    public OrderServiceImpl(MemberRepositroy memberRepositroy, DiscountPolicy discountPolicy) {
+        this.memberRepositroy = memberRepositroy;
+        this.discountPolicy = discountPolicy;
+    }
+
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
         Member member = memberRepositroy.findById(memberId);
