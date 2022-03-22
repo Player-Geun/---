@@ -3,7 +3,8 @@ package geun.springcoreprinciple.lifecycle;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
-public class NetworkClient implements InitializingBean, DisposableBean {
+// @Bean을 사용하면 NetworkClient Bean이 더이상 스프링 코드에 의존적이지 않는다.
+public class NetworkClient { //implements InitializingBean, DisposableBean {
 
     private String url;
 
@@ -31,14 +32,14 @@ public class NetworkClient implements InitializingBean, DisposableBean {
         System.out.println("disconnect: " + url);
     }
 
-    @Override       //의존관계 주입이 끝나면
-    public void afterPropertiesSet() throws Exception {
+//    @Override       //의존관계 주입이 끝나면
+    public void init() throws Exception {
         connect();
         call("초기화 연결 메세지");
     }
 
-    @Override       //빈이 소멸되기 직전
-    public void destroy() throws Exception {
+//    @Override       //빈이 소멸되기 직전
+    public void close() throws Exception {
         disconnect();
     }
 }
