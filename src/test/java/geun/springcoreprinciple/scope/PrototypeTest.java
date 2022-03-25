@@ -20,7 +20,7 @@ public class PrototypeTest {
         System.out.println("prototypeBean1 = " + prototypeBean1);
         System.out.println("prototypeBean2 = " + prototypeBean2);
 
-        Assertions.assertThat(prototypeBean1).isSameAs(prototypeBean2);
+        Assertions.assertThat(prototypeBean1).isNotSameAs(prototypeBean2);
         ac.close();
     }
 

@@ -56,12 +56,12 @@ public class ApplicationContextSameBeanFindTest {
     static class SameBeanConfig {
 
         @Bean
-        public MemberRepositroy memberRepositroy1() {
+        public MemberRepositroy memberRepository1() {
             return new MemoryMemberRepository();
         }
 
         @Bean
-        public MemberRepositroy memberRepositroy2() {
+        public MemberRepositroy memberRepository2() {
             return  new MemoryMemberRepository();
         }
     }
